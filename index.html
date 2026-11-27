@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colors Studio | Wedding Photography &amp; Films</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ivory: #fcf9f4;
+      --cream: #f6f3ee;
+      --sand: #e6dfd5;
+      --white-cream: #f3f0eb;
+      --charcoal: #1c1c19;
+      --charcoal-2: #31302d;
+      --body: #4d463b;
+      --gold: #b69a70;
+      --gold-light: #e1c295;
+      --gold-dark: #725b36;
+      --gold-ink: #453211;
+      --muted: #ccc6bc;
+
+      --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+    img { display: block; max-width: 100%; }
+    button, input { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 1.44px;
+      text-transform: uppercase;
+      line-height: 16px;
+    }
+    .eyebrow-sm {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 1.54px;
+      text-transform: uppercase;
+      line-height: 14px;
+    }
+    .display {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: -0.72px;
+      line-height: 1.17;
+    }
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      max-width: 768px;
+      margin: 0 auto;
+    }
+    .section-head p.lede {
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--body);
+      letter-spacing: 0.08px;
+      padding-top: 8px;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      border: none;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, opacity .2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: var(--gold-ink); }
+    .btn-glass {
+      background: rgba(252, 249, 244, 0.15);
+      color: var(--white-cream);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .btn-dark { background: var(--charcoal-2); color: var(--white-cream); }
+    .btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    /* ---------- 01 HERO ---------- */
+    .hero {
+      position: relative;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--charcoal-2);
+      color: var(--white-cream);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(28, 28, 25, 0.7) 0%,
+        rgba(28, 28, 25, 0.5) 50%,
+        rgba(28, 28, 25, 0.8) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 1024px;
+      padding: 96px 32px 128px;
+    }
+    .hero .eyebrow { color: var(--gold-light); margin-bottom: 16px; }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 64px;
+      line-height: 72px;
+      letter-spacing: -1.28px;
+      color: var(--white-cream);
+      margin-bottom: 32px;
+      max-width: 896px;
+    }
+    .hero p.lede {
+      font-size: 16px;
+      line-height: 26px;
+      color: #e8e2d8;
+      max-width: 672px;
+      margin-bottom: 64px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .scroll-cue {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: rgba(243, 240, 235, 0.8);
+      font-size: 11px;
+      letter-spacing: 1.54px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .scroll-cue img { width: 10px; height: 6px; }
+
+    /* ---------- 02 ACHIEVEMENT + EDITORIAL ---------- */
+    .achievements {
+      background: var(--ivory);
+      padding: 64px 0;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .achievements .container { display: flex; flex-direction: column; gap: 64px; }
+    .achievements .section-head .eyebrow { color: var(--gold-dark); }
+    .achievements .section-head h2 {
+      font-size: 48px;
+      color: var(--charcoal);
+    }
+    .achievements .section-head p.lede { color: var(--body); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .stat {
+      background: var(--cream);
+      padding: 32px;
+      min-height: 172px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      line-height: 72px;
+      letter-spacing: -1.28px;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 1.44px;
+      text-transform: uppercase;
+      color: var(--body);
+      font-weight: 500;
+    }
+
+    .editorial-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .editorial-head .eyebrow-sm { color: var(--gold-dark); }
+    .editorial-head h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: -0.32px;
+      color: var(--charcoal);
+      margin-top: 4px;
+    }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--gold-dark);
+      font-size: 12px;
+      letter-spacing: 1.44px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .text-link img { width: 11px; height: 11px; }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .article { display: flex; flex-direction: column; }
+    .article .frame {
+      aspect-ratio: 3 / 4;
+      background: #f0ede9;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .article .frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .article:hover .frame img { transform: scale(1.03); }
+    .article .caption {
+      font-size: 11px;
+      letter-spacing: 1.54px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 500;
+      line-height: 14px;
+    }
+    .article h4 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      color: var(--charcoal);
+      margin-top: 4px;
+    }
+
+    /* ---------- 03 LEAD FORM ---------- */
+    .enquiry {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--cream);
+      min-height: 857px;
+    }
+    .enquiry-photo {
+      position: relative;
+      overflow: hidden;
+      min-height: 857px;
+      color: var(--white-cream);
+    }
+    .enquiry-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .enquiry-photo .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+        rgba(28, 28, 25, 0.8) 0%,
+        rgba(28, 28, 25, 0.25) 50%,
+        rgba(28, 28, 25, 0) 100%);
+    }
+    .enquiry-photo .photo-text {
+      position: absolute;
+      left: 48px;
+      right: 48px;
+      bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .enquiry-photo .photo-text .eyebrow-sm { color: var(--gold-light); }
+    .enquiry-photo h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 56px;
+      letter-spacing: -0.72px;
+      color: var(--white-cream);
+    }
+
+    .enquiry-form-wrap {
+      background: var(--ivory);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 111px 64px;
+    }
+    .enquiry-form-inner {
+      width: 100%;
+      max-width: 576px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .enquiry-form-inner .eyebrow { color: var(--gold-dark); }
+    .enquiry-form-inner h2 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: -0.32px;
+      color: var(--charcoal);
+    }
+    .enquiry-form-inner .intro {
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--body);
+      letter-spacing: 0.14px;
+      padding-top: 8px;
+    }
+
+    form#enquiryForm {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 24px;
+    }
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .field label {
+      font-size: 11px;
+      letter-spacing: 1.54px;
+      text-transform: uppercase;
+      color: var(--body);
+      font-weight: 500;
+      line-height: 14px;
+    }
+    .field input {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: 14px 16px;
+      font-size: 14px;
+      letter-spacing: 0.14px;
+      color: var(--charcoal);
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .field input::placeholder { color: #9ca3af; }
+    .field input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(182, 154, 112, 0.2);
+    }
+    .submit-btn {
+      width: 100%;
+      margin-top: 8px;
+      padding: 16px 32px;
+      background: var(--charcoal-2);
+      color: var(--white-cream);
+      border: none;
+      cursor: pointer;
+      font-size: 12px;
+      letter-spacing: 1.44px;
+      text-transform: uppercase;
+      font-weight: 500;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+      transition: background .2s ease, opacity .2s ease;
+    }
+    .submit-btn:hover { background: #3f3e3a; }
+    .submit-btn:disabled { opacity: .6; cursor: not-allowed; }
+    .form-status {
+      min-height: 22px;
+      font-size: 14px;
+      line-height: 22px;
+      text-align: center;
+      color: var(--body);
+    }
+    .form-status.success { color: var(--gold-dark); }
+    .form-status.error { color: #9b2c2c; }
+    .form-note {
+      text-align: center;
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--body);
+      padding-top: 4px;
+    }
+
+    /* ---------- 04 REVIEWS ---------- */
+    .reviews {
+      background: var(--sand);
+      padding: 64px 0;
+    }
+    .reviews .container { display: flex; flex-direction: column; gap: 64px; }
+    .reviews .section-head .eyebrow { color: var(--gold-dark); }
+    .reviews .section-head h2 {
+      font-size: 48px;
+      color: var(--charcoal);
+    }
+    .reviews .section-head p.lede { color: var(--body); }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--ivory);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    }
+    .review-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .quote-mark {
+      font-family: var(--font-display);
+      font-size: 64px;
+      line-height: 64px;
+      color: var(--gold);
+    }
+    .stars {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 4px;
+    }
+    .review-text {
+      font-size: 16px;
+      line-height: 26px;
+      letter-spacing: 0.08px;
+      color: var(--charcoal);
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 16px;
+    }
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #f0ede9;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .author-name {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      color: var(--charcoal);
+    }
+    .author-role {
+      font-size: 11px;
+      letter-spacing: 1.54px;
+      text-transform: uppercase;
+      color: var(--body);
+      font-weight: 500;
+      line-height: 14px;
+    }
+
+    /* ---------- 05 FAQ ---------- */
+    .faq {
+      background: var(--ivory);
+      padding: 64px 192px;
+    }
+    .faq-inner {
+      max-width: 896px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      padding: 0 32px;
+    }
+    .faq .section-head .eyebrow { color: var(--gold-dark); }
+    .faq .section-head h2 {
+      font-size: 48px;
+      color: var(--charcoal);
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .faq-item {
+      background: var(--cream);
+    }
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      color: var(--charcoal);
+    }
+    .faq-q .chev {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      transition: transform .3s ease;
+    }
+    .faq-q[aria-expanded="true"] .chev { transform: rotate(45deg); }
+    .faq-q:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+
+    /* ---------- 06 FOOTER ---------- */
+    footer {
+      background: var(--charcoal);
+      color: var(--white-cream);
+      padding: 64px 0 32px;
+    }
+    footer .container { display: flex; flex-direction: column; gap: 32px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 5fr 3fr 4fr;
+      gap: 64px;
+      align-items: start;
+      padding-bottom: 32px;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 16px; }
+    .footer-brand .eyebrow { color: var(--gold-light); }
+    .footer-brand h2 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 56px;
+      letter-spacing: -0.72px;
+      color: var(--white-cream);
+    }
+    .footer-brand p {
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--muted);
+      letter-spacing: 0.08px;
+    }
+    .footer-col { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col .eyebrow-sm { color: var(--gold-light); margin-bottom: 4px; }
+    .footer-col a {
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.14px;
+      color: var(--white-cream);
+      transition: color .2s ease;
+    }
+    .footer-col a:hover { color: var(--gold-light); }
+    .contact-lines { display: flex; flex-direction: column; gap: 4px; }
+    .contact-lines p {
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.14px;
+      color: #e8e2d8;
+    }
+    .contact-lines p span { color: var(--white-cream); }
+    .social {
+      display: flex;
+      gap: 16px;
+      padding-top: 4px;
+      flex-wrap: wrap;
+    }
+    .social a {
+      font-size: 12px;
+      letter-spacing: 1.44px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--white-cream);
+      transition: color .2s ease;
+    }
+    .social a:hover { color: var(--gold-light); }
+
+    .footer-cta {
+      background: var(--charcoal-2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-cta h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      color: var(--white-cream);
+    }
+    .footer-cta .btn-gold { padding: 16px 32px; }
+    .copyright {
+      padding-top: 32px;
+      font-size: 11px;
+      letter-spacing: 1.54px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1100px) {
+      .faq { padding: 64px 32px; }
+      .hero h1 { font-size: 52px; line-height: 60px; }
+      .section-head h2, .achievements .section-head h2, .reviews .section-head h2, .faq .section-head h2 {
+        font-size: 40px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .editorial-grid { grid-template-columns: repeat(2, 1fr); }
+      .enquiry { grid-template-columns: 1fr; }
+      .enquiry-photo { min-height: 520px; }
+      .enquiry-form-wrap { padding: 64px 32px; }
+      .review-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 640px; }
+      .hero-content { padding: 80px 24px 120px; }
+      .hero h1 { font-size: 38px; line-height: 46px; letter-spacing: -0.5px; }
+      .hero p.lede { font-size: 15px; line-height: 24px; margin-bottom: 40px; }
+      .hero-ctas { flex-direction: column; width: 100%; }
+      .hero-ctas .btn { width: 100%; }
+
+      .section-head h2, .achievements .section-head h2, .reviews .section-head h2, .faq .section-head h2 {
+        font-size: 32px;
+        line-height: 40px;
+      }
+      .section-head p.lede { font-size: 15px; line-height: 24px; }
+      .container { padding: 0 20px; }
+      .achievements, .reviews { padding: 48px 0; }
+      .achievements .container, .reviews .container { gap: 40px; }
+
+      .stats { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .stat { padding: 24px 16px; min-height: 140px; }
+      .stat-num { font-size: 40px; line-height: 48px; }
+
+      .editorial-grid { grid-template-columns: 1fr; gap: 32px; }
+      .editorial-head h3 { font-size: 26px; line-height: 34px; }
+
+      .enquiry-photo { min-height: 420px; }
+      .enquiry-photo .photo-text { left: 24px; right: 24px; bottom: 32px; }
+      .enquiry-photo h3 { font-size: 34px; line-height: 40px; }
+      .enquiry-form-wrap { padding: 48px 20px; }
+      .enquiry-form-inner h2 { font-size: 26px; line-height: 34px; }
+      .field-row { grid-template-columns: 1fr; }
+
+      .faq { padding: 48px 0; }
+      .faq-inner { padding: 0 20px; gap: 40px; }
+      .faq-q { padding: 16px 20px; font-size: 20px; line-height: 28px; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-brand h2 { font-size: 36px; line-height: 44px; }
+      .footer-cta { padding: 24px 20px; }
+      .footer-cta .btn-gold { width: 100%; }
+      .footer-cta h3 { font-size: 20px; line-height: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ 01 HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="https://www.figma.com/api/mcp/asset/4db4b98c-42ff-4794-b1d4-50a02b8f9661.png" alt="South Indian wedding couple in traditional attire" />
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="eyebrow">YOUR STORY, OUR LENS.</div>
+      <h1 class="display">Every Love Story Deserves to Be Remembered Beautifully.</h1>
+      <p class="lede">Your wedding is more than a celebration. It’s a thousand little moments, genuine emotions, and memories you’ll want to relive forever. At Colors Studio, we turn those moments into timeless photographs and films.</p>
+      <div class="hero-ctas">
+        <a href="#enquiry" class="btn btn-gold eyebrow">LET’S PLAN YOUR WEDDING</a>
+        <a href="#stories" class="btn btn-glass eyebrow">EXPLORE OUR STORIES</a>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-cue" aria-label="Scroll to about">
+      <span>SCROLL</span>
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+        <path d="M1 1l4 4 4-4" stroke="#f3f0eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- ============ 02 ACHIEVEMENTS + EDITORIAL STRIP ============ -->
+  <section class="achievements" id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">A LITTLE LOVE, A LOT OF MEMORIES.</div>
+        <h2 class="display">Every Frame Tells a Story. Every Story Means Everything.</h2>
+        <p class="lede">Behind every photograph is a beautiful moment, a happy family, and a memory worth keeping. We’re grateful to be part of so many unforgettable celebrations.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">BEAUTIFUL WEDDINGS<br />CAPTURED</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">8+</div>
+          <div class="stat-label">YEARS OF CREATING<br />MEMORIES</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">1000+</div>
+          <div class="stat-label">HAPPY FAMILIES</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">LOVE FOR WHAT WE DO</div>
+        </div>
+      </div>
+
+      <div id="stories">
+        <div class="editorial-head">
+          <div>
+            <div class="eyebrow-sm">CURATED GALLERIES</div>
+            <h3>Moments Preserved in Time</h3>
+          </div>
+          <a href="#enquiry" class="text-link">
+            RESERVE YOUR DATE
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+              <path d="M2 5.5h7M6 2.5l3 3-3 3" stroke="#725b36" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="editorial-grid" style="margin-top: 24px;">
+          <article class="article">
+            <div class="frame">
+              <img src="https://www.figma.com/api/mcp/asset/807dfe04-4b71-468a-a1d8-822b4bad8298.png" alt="South Indian bride in Kanjeevaram silk saree" />
+            </div>
+            <div class="caption">BRIDAL PORTRAITS</div>
+            <h4>Grace &amp; Heritage</h4>
+          </article>
+          <article class="article">
+            <div class="frame">
+              <img src="https://www.figma.com/api/mcp/asset/56c98434-d698-42ca-87ab-07f8f935c23b.png" alt="Tamil wedding ceremony ritual around sacred fire" />
+            </div>
+            <div class="caption">SACRED RITUALS</div>
+            <h4>Timeless Traditions</h4>
+          </article>
+          <article class="article">
+            <div class="frame">
+              <img src="https://www.figma.com/api/mcp/asset/52d18e01-790e-4cbe-b4c4-defa81b2d732.png" alt="South Indian couple walking together at dusk" />
+            </div>
+            <div class="caption">GOLDEN HOUR</div>
+            <h4>Quiet Intimacy</h4>
+          </article>
+          <article class="article">
+            <div class="frame">
+              <img src="https://www.figma.com/api/mcp/asset/d8f7c89e-4642-47ed-a936-887a8e03bd2f.png" alt="Happy Indian wedding couple laughing together" />
+            </div>
+            <div class="caption">CANDID JOY</div>
+            <h4>Unscripted Laughter</h4>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 LEAD FORM / ENQUIRY ============ -->
+  <section class="enquiry" id="enquiry">
+    <div class="enquiry-photo">
+      <img src="https://www.figma.com/api/mcp/asset/52d18e01-790e-4cbe-b4c4-defa81b2d732.png" alt="Couple walking together at dusk" />
+      <div class="photo-overlay"></div>
+      <div class="photo-text">
+        <div class="eyebrow-sm">COLORS STUDIO • KALLAKURICHI</div>
+        <h3>Your Wedding Story Starts Here.</h3>
+      </div>
+    </div>
+
+    <div class="enquiry-form-wrap">
+      <div class="enquiry-form-inner">
+        <div class="eyebrow">LET’S MAKE SOMETHING BEAUTIFUL TOGETHER.</div>
+        <h2>Your Wedding Story Starts With a Hello.</h2>
+        <p class="intro">Planning your big day? We’d love to hear all about it. Tell us a little about your wedding, and we’ll help you create memories that last a lifetime.</p>
+
+        <form id="enquiryForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="name">YOUR NAME</label>
+              <input id="name" name="name" type="text" placeholder="e.g. Ananya" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="email">EMAIL ADDRESS</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="phone">PHONE / WHATSAPP NUMBER</label>
+            <input id="phone" name="phone" type="tel" placeholder="+91 97900 39330" autocomplete="tel" required />
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">LET’S TALK ABOUT MY WEDDING</button>
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+
+        <p class="form-note">No pressure, no complicated process. Just a friendly conversation about your special day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 REVIEWS ============ -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">KIND WORDS, BEAUTIFUL MEMORIES.</div>
+        <h2 class="display">Don’t Just Take Our Word for It.</h2>
+        <p class="lede">The best part of our work isn’t just the photographs we deliver. It’s hearing how those photographs make people feel years later.</p>
+      </div>
+
+      <div class="review-grid">
+        <div class="review-card">
+          <div>
+            <div class="review-top">
+              <div class="quote-mark">“</div>
+              <div class="stars" aria-label="5 star review">★★★★★</div>
+            </div>
+            <p class="review-text" style="margin-top: 16px;">Colors Studio made our wedding memories even more beautiful than we imagined. They captured every little emotion so naturally. Looking at our photos takes us straight back to that wonderful day!</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><img src="https://www.figma.com/api/mcp/asset/d8f7c89e-4642-47ed-a936-887a8e03bd2f.png" alt="" /></div>
+            <div>
+              <div class="author-name">Ananya &amp; Karthik</div>
+              <div class="author-role">WEDDING COUPLE</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-top">
+              <div class="quote-mark">“</div>
+              <div class="stars" aria-label="5 star review">★★★★★</div>
+            </div>
+            <p class="review-text" style="margin-top: 16px;">From the first conversation to the final album, the entire experience was amazing. The team was friendly, professional, and made us feel completely comfortable.</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><img src="https://www.figma.com/api/mcp/asset/807dfe04-4b71-468a-a1d8-822b4bad8298.png" alt="" /></div>
+            <div>
+              <div class="author-name">Divya &amp; Vignesh</div>
+              <div class="author-role">WEDDING COUPLE</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-top">
+              <div class="quote-mark">“</div>
+              <div class="stars" aria-label="5 star review">★★★★★</div>
+            </div>
+            <p class="review-text" style="margin-top: 16px;">We couldn’t have asked for a better team to capture our big day. Every photograph tells a story, and we absolutely love the way our wedding film turned out!</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><img src="https://www.figma.com/api/mcp/asset/56c98434-d698-42ca-87ab-07f8f935c23b.png" alt="" /></div>
+            <div>
+              <div class="author-name">Meera &amp; Arjun</div>
+              <div class="author-role">WEDDING COUPLE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="faq-inner">
+      <div class="section-head">
+        <div class="eyebrow">A FEW THINGS YOU MIGHT BE WONDERING.</div>
+        <h2 class="display">Got Questions? We’ve Got Answers.</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How early should we book Colors Studio?
+            <svg class="chev" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="#1c1c19" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What photography services do you offer?
+            <svg class="chev" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="#1c1c19" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do you travel for weddings outside your location?
+            <svg class="chev" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="#1c1c19" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can we customize our wedding photography package?
+            <svg class="chev" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="#1c1c19" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How long does it take to receive our wedding photos and videos?
+            <svg class="chev" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="#1c1c19" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do you provide wedding albums?
+            <svg class="chev" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="#1c1c19" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How can we book Colors Studio?
+            <svg class="chev" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="#1c1c19" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 FOOTER ============ -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="eyebrow">COLORS STUDIO</div>
+          <h2>We Capture Moments. You Keep Them Forever.</h2>
+          <p>Every wedding has a story worth telling. Let us capture yours with photographs and films that you’ll treasure for a lifetime.</p>
+        </div>
+
+        <nav class="footer-col" aria-label="Footer navigation">
+          <div class="eyebrow-sm">NAVIGATION</div>
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#stories">Wedding Photography</a>
+          <a href="#stories">Wedding Films</a>
+          <a href="#stories">Our Stories</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="footer-col">
+          <div class="eyebrow-sm">GET IN TOUCH</div>
+          <div class="contact-lines">
+            <p>Phone: <span>9790039330</span></p>
+            <p>WhatsApp: <span>9790039330</span></p>
+            <p>Email: <span>solorsstudiokk@gmail.com</span></p>
+            <p>Location: Kallakurichi, Tamil Nadu.</p>
+          </div>
+          <div class="social">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="YouTube">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="padding: 0 32px;">
+      <div class="footer-cta">
+        <h3>Your Forever Begins Here. Let’s Capture It Beautifully.</h3>
+        <a href="#enquiry" class="btn btn-gold eyebrow">BOOK YOUR WEDDING DATE</a>
+      </div>
+      <div class="copyright">© 2026 COLORS STUDIO. ALL RIGHTS RESERVED.</div>
+    </div>
+  </footer>
+
+  <script>
+    // ----- Apps Script endpoint (deployed Web App URL) -----
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwq-hFt4Sd8UCzbKIbfO8cEIOhCRCpTwIhn5YZ6vbbUJF5KmvVkYNuP5dbcLf-X_Dg/exec";
+
+    const form = document.getElementById("enquiryForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const statusEl = document.getElementById("formStatus");
+
+    function setStatus(message, type) {
+      statusEl.textContent = message;
+      statusEl.className = "form-status" + (type ? " " + type : "");
+    }
+
+    function showSuccess() {
+      setStatus("Thank you! We’ll be in touch with you soon.", "success");
+      form.reset();
+      submitBtn.disabled = false;
+    }
+
+    function showError() {
+      setStatus("Something went wrong. Please try again in a moment.", "error");
+      submitBtn.disabled = false;
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || !email || !phone) {
+        setStatus("Please fill in your name, email, and phone number.", "error");
+        return;
+      }
+
+      setStatus("Sending…");
+      submitBtn.disabled = true;
+
+      const url = SCRIPT_URL + "?" + new URLSearchParams({ name, email, phone });
+
+      fetch(url, { method: "GET", mode: "no-cors" })
+        .then(() => showSuccess())
+        .catch(() => showError());
+    });
+
+    // FAQ accordion (open/close state only; answers are not in the design)
+    document.querySelectorAll(".faq-q").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!isOpen));
+      });
+    });
+  </script>
+</body>
+</html>
